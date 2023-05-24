@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fapi
+  template:
+    metadata:
+      labels:
+        app: fapi
+    spec:
+      containers:
+      - name: fapi
+        image: us-east4-docker.pkg.dev/dev-orb-web-crawler961af75ff9e/orb-web-data-platform-upstream/fapi:test
+        ports:
+        - containerPort: 80
